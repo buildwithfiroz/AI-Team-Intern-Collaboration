@@ -2,8 +2,8 @@
 
 **Dynamic-Review-Analysis** is an AI-powered platform designed to help users **scrape, analyze, and visualize reviews** from websites.  
 
-- ✅ Scrape reviews from the websites   
-- ✅ Display results in a clean, user-friendly dashboard 
+- Scrape reviews from the websites   
+- Display results in a clean, user-friendly dashboard 
 
 ---
 
@@ -19,9 +19,16 @@
 
 <br>
 
-<p align="center">
-  <img src="main/static/image/banner.png" alt="Project Banner" width="800"/>
-</p>
+<!-- images -->
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+    <div style="col-span-2">
+        <img src="macbook.png" alt="Project Banner" width="600"/>
+    </div>
+    <div style="col-span-1">
+        <img src="phone.png" alt="Project Banner" width="160"/>
+    </div>
+</div>
 
 <br>
 
@@ -50,21 +57,17 @@
 - Extracts reviews with **BeautifulSoup** / **Playwright**  
 - Handles pagination & dynamic content  
 
-### 2. Review Analysis Engine  
-- Text preprocessing & cleaning  
-- **Sentiment Analysis**: Positive / Negative / Neutral  
-- Keyword & theme extraction  
-- Review summarization  
-
-### 3. Dashboard  
+### 2. Dashboard  
 - **KPIs:**  
   - Total reviews  
-  - Avg. sentiment score  
-  - Top themes / keywords  
+  - Avg. rating score  
+  - Recent Orders  
+  - Recommendation
 - **Visuals:**  
-  - Pie chart (sentiment breakdown)  
-  - Bar chart (keyword frequency)  
-  - Line chart (sentiment trend over time)  
+  - Bar chart (Rating)  
+  - Line chart (Montly Review) 
+- **Latest Review:**  
+  - Latest five review
 
 ---
 
