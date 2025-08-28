@@ -23,10 +23,10 @@
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
     <div style="col-span-2">
-        <img src="macbook.png" alt="Project Banner" width="600"/>
+        <img src="image_for_readme/macbook.png" alt="Project Banner" width="600"/>
     </div>
     <div style="col-span-1">
-        <img src="phone.png" alt="Project Banner" width="160"/>
+        <img src="image_for_readme/phone.png" alt="Project Banner" width="160"/>
     </div>
 </div>
 
