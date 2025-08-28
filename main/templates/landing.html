@@ -1,0 +1,293 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Review App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Product Review App</h1>
+      <nav>
+        {% if session.user_id %}
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('signup') }}">Signup</a>
+        {% endif %}
+      </nav>
+    </header>
+    <main>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% for
+      category, msg in messages %}
+      <div class="alert alert-{{ category }}">{{ msg }}</div>
+      {% endfor %} {% endwith %} {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
+=======
+<!-- <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Review Analytics</title>
+  <meta name="description" content="AI-powered review scraping & summarization with a chat-based dashboard.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          animation: {
+            'fade-in': 'fadeIn 1s ease-out forwards',
+            'slide-up': 'slideUp 0.6s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } },
+            slideUp: { '0%': { opacity: 0, transform: 'translateY(20px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+          },
+        },
+      },
+    };
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .bg-grid-pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, .04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    .dark .bg-grid-pattern {
+      background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .05) 1px, transparent 0);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300 bg-grid-pattern">
+
+  <header class="sticky top-0 z-40 flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8 backdrop-blur-sm bg-white/80 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800">
+    <div class="flex items-center space-x-2">
+      <svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+      <span class="text-xl font-bold tracking-tight">Dynamic Review Analytics</span>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <button id="theme-toggle" aria-label="Toggle theme" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition">
+        <svg id="theme-icon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
+      </button>
+
+      <a href="{{ url_for('login.login') }}" class="hidden sm:inline-block px-5 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all">
+        Log In
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="max-w-7xl h-[80vh] mx-auto px-4 py-20 sm:px-6 lg:px-8 grid md:grid-cols-2 items-center gap-10">
+      <div class="animate-fade-in">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+          Unlock Insights from <span class="text-indigo-600 dark:text-indigo-400">Every Review</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed text-justify">
+          An AI-powered platform that scrapes, analyzes, and summarizes website reviews into a clean, user-friendly dashboard.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="{{ url_for('login.login') }}" class="w-full sm:w-auto text-center px-6 py-3 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all">
+            Get Started
+          </a>
+        </div>
+      </div>
+
+      <div class="relative animate-slide-up">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-64 h-64 bg-gradient-to-br from-indigo-400/20 to-purple-400/20 dark:from-indigo-400/10 dark:to-purple-400/10 rounded-full blur-3xl"></div>
+        </div>
+        <div>
+          <img src="{{ url_for('static', filename='banner.png') }}" class="rounded-2xl" alt="Banner">
+        </div>
+      </div>
+    </section>
+
+    <div class="flex justify-center items-center w-full h-full">
+      <button onclick="toggleScroll()">
+        <svg id="scroll-icon" class="h-8 w-8 text-indigo-600 mt-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path id="scroll-path" stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+
+
+
+  </main>
+
+
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8">
+    <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500 dark:text-slate-400 sm:px-6 lg:px-8">
+      &copy; <span id="year"></span> Dynamic Review Analysis. All rights reserved.
+    </div>
+  </footer>
+
+
+  <script>
+    const html = document.documentElement;
+    const themeIcon = document.getElementById('theme-icon');
+
+    const setThemeIcon = () => {
+      themeIcon.innerHTML = html.classList.contains('dark')
+        ? '<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />'
+        : '<path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />';
+    };
+
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+      setThemeIcon();
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    let isScrolledDown = false;
+    function toggleScroll() {
+      if (isScrolledDown) {
+        window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+        document.getElementById('scroll-path').setAttribute('d', 'M19 9l-7 7-7-7');
+      } else {
+        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        document.getElementById('scroll-path').setAttribute('d', 'M5 15l7-7 7 7');
+      }
+      isScrolledDown = !isScrolledDown;
+    }
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – Dynamic Review Analytics</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          animation: { 'fade-in': 'fadeIn .6s ease-out forwards' },
+          keyframes: { fadeIn: { '0%': { opacity: 0 }, '100%': { opacity: 1 } } },
+        },
+      },
+    };
+  </script>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
+
+  <!-- Theme preference -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
+  <div class="min-h-screen flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-sm animate-fade-in">
+
+      <!-- Logo -->
+      <div class="flex justify-center mb-6">
+        <div class="flex items-center space-x-2">
+          <svg class="h-10 w-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          <span class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Dynamic Review Analytics</span>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" method="POST" action="{{ url_for('login.login') }}" class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-lg space-y-6">
+        <h2 class="text-xl font-semibold text-center text-slate-800 dark:text-slate-100">Welcome back</h2>
+
+        <!-- Flash Message -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="text-sm text-red-600 dark:text-red-400 text-center">
+              {{ messages[0] }}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Emailid -->
+        <div>
+          <label for="emailid" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email Id</label>
+          <input id="emailid" name="emailid" type="text" required
+                 class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                 placeholder="e.g. firoz" />
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Password</label>
+          <div class="relative">
+            <input id="password" name="password" type="password" required
+                   class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition pr-12"
+                   placeholder="••••••••" />
+            <!-- Show / Hide -->
+            <button type="button" id="toggle-password" aria-label="Toggle password visibility"
+                    class="absolute inset-y-0 right-0 flex items-center px-3 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+              <svg id="eye-show" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              <svg id="eye-hide" class="h-5 w-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit"
+                class="w-full py-2.5 px-4 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all">
+          Log In
+        </button>
+        
+      </form>
+    </div>
+  </div>
+
+  <!-- Password Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password');
+    const eyeShow = document.getElementById('eye-show');
+    const eyeHide = document.getElementById('eye-hide');
+
+    toggleBtn.addEventListener('click', () => {
+      const isPassword = passwordInput.type === 'password';
+      passwordInput.type = isPassword ? 'text' : 'password';
+      eyeShow.classList.toggle('hidden', isPassword);
+      eyeHide.classList.toggle('hidden', !isPassword);
+    });
+  </script>
+</body>
+</html>
+>>>>>>> nehal

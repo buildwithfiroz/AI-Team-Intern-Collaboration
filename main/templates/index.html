@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}Dynamic Review Analytics{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block menubar %}
+{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<main id="main" class="lg:mt-16">
+  <section class="max-w-7xl h-auto md:h-[39vh] lg:h-[84vh] mx-auto px-4 py-20">
+    <div class="mt-10 sm:mt-0 sm:px-6 lg:px-8 grid md:grid-cols-2 items-center gap-10">
+      <!-- Left -->
+      <div class="mx-8 animate-fade-in">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+          Unlock Insights from <span class="text-indigo-600 dark:text-indigo-400">Every Review</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed text-justify">
+          An AI-powered platform that scrapes, analyzes, and summarizes website reviews into a clean, user-friendly
+          dashboard. Users can explore insights and interact with the data using a smart, chat-based interface powered
+          by retrieval-augmented generation (RAG).
+        </p>
+
+        <div class="mx-[6rem] sm:mx-0 mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="{{ url_for('login.login')}}"
+            class="w-full sm:w-auto text-center font-semibold text-white px-5 py-3 bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all">
+            Get Started
+          </a>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="hidden sm:block relative animate-slide-up">
+        <!-- Floating icons -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div
+            class="w-64 h-64 bg-gradient-to-br from-indigo-400/20 to-purple-400/20 dark:from-indigo-400/10 dark:to-purple-400/10 rounded-full blur-3xl">
+          </div>
+        </div>
+        <div>
+          <img src="{{ url_for('static', filename='images/banner.png')}}" class="rounded-2xl" alt="banner">
+        </div>
+      </div>
+    </div>
+
+    <div class="sm:block md:hidden lg:block mt-[7rem] md:mt-[4rem] lg:mt-[9rem] text-center w-full">
+      <button onclick="toggleScroll()">
+        <svg id="scroll-icon" class="h-8 w-8 text-indigo-600 sm:mt-3" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path id="scroll-path" stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- features -->
+  <section class="max-w-7xl mx-auto px-4 sm:py-20 lg:py-0 lg:pb-20  sm:px-6 lg:px-8 items-center gap-10">
+    <div class="flex justify-center">
+      <p class="m-5 text-2xl font-semibold">Feature</p>
+    </div>
+    <div class="relative animate-slide-up">
+      <!-- Floating icons -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div
+          class="w-64 h-64 bg-gradient-to-br from-indigo-400/20 to-purple-400/20 dark:from-indigo-400/10 dark:to-purple-400/10 rounded-full blur-3xl">
+        </div>
+      </div>
+
+      <div class="relative grid xl:grid-cols-4 gap-4 sm:grid-cols-2 p-4">
+        <div class="p-4 bg-white dark:bg-slate-900 rounded-xl shadow-lg animate-float" style="animation-delay: 0s;">
+          <div class="flex items-center space-x-2 mb-2">
+            <svg class="h-8 w-8 text-indigo-600 mt-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span class="font-semibold text-xl mt-4">Sentiment Analysis</span>
+          </div>
+          <p class="text-justify p-3 leading-relaxed">
+            Our Sentiment Analysis feature uses advanced AI algorithms to analyze customer reviews and feedback,
+            identifying the overall sentiment. This helps businesses quickly assess customer emotions, allowing for
+            better decision-making and targeted improvements to customer experience
+          </p>
+        </div>
+
+        <div class="p-4 bg-white dark:bg-slate-900 rounded-xl shadow-lg animate-float" style="animation-delay: .5s;">
+          <div class="flex items-center space-x-2 mb-2">
+            <svg class="h-8 w-8 text-purple-600 mt-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span class="font-semibold text-xl mt-4">Chat Interface</span>
+          </div>
+          <p class="text-justify p-3 leading-relaxed">
+            The Chat Interface leverages a smart, interactive platform that allows users to easily explore insights
+            and engage with the review data in real-time. Powered by advanced Retrieval Augmented Generation (RAG), it
+            offers a seamless conversational experience to guide users through the analytics.
+          </p>
+        </div>
+
+        <div class="p-4 bg-white dark:bg-slate-900 rounded-xl shadow-lg animate-float" style="animation-delay: 1s;">
+          <div class="flex items-center space-x-2 mb-2">
+            <svg class="h-8 w-8 text-sky-600 mt-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            <span class="font-semibold text-xl mt-4">Smart Dashboard</span>
+          </div>
+          <p class="text-justify p-3 leading-relaxed">
+            The Smart Dashboard consolidates all key metrics and data in a visually appealing layout, enabling
+            businesses to track performance and insights at a glance. With interactive charts and real-time updates,
+            this dashboard empowers users to make data-driven decisions with ease.
+          </p>
+        </div>
+
+        <div class="p-4 bg-white dark:bg-slate-900 rounded-xl shadow-lg animate-float" style="animation-delay: 1.5s;">
+          <div class="flex items-center space-x-2 mb-2">
+            <svg class="h-8 w-8 text-emerald-600 mt-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span class="font-semibold text-xl mt-4">Real-time</span>
+          </div>
+          <p class="text-justify p-3 leading-relaxed">
+            The Real-Time Analytics feature provides up-to-the-minute insights on customer feedback and review trends.
+            This dynamic tool allows businesses to respond quickly to changes, ensuring they stay ahead of market
+            trends and continuously improve their offerings based on live data.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

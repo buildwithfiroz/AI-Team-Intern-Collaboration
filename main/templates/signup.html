@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block menubar %}
+{% endblock %}
+
+{% block loginbtn %}
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center px-4 mt-[-4.5rem]">
+  <div class="w-full max-w-3xl animate-fade-in">
+
+    <!-- Logo -->
+    <!-- <div class="flex justify-center mb-6 mt-16">
+      <div class="flex items-center space-x-2">
+        <svg class="h-10 w-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+        <span class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Dynamic Review Analytics</span>
+      </div>
+    </div> -->
+
+    <!-- Login Form -->
+    <form id="signup-form" method="POST" action="{{ url_for('signup.signup') }}"
+      class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-lg space-y-6">
+      <h2 class="text-xl font-semibold text-center text-slate-800 dark:text-slate-100">Sign up</h2>
+
+      <!-- Flash Message -->
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="text-sm text-red-600 dark:text-red-400 text-center">
+        {{ messages[0] }}
+      </div>
+      {% endif %}
+      {% endwith %}
+
+      <div class="grid grid-cols-1 gap-2 space-y-2 md:grid-cols-2 md:gap-4 md:space-y-0">
+        <!-- First Name -->
+        <div>
+          <label for="firstname" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">First
+            Name</label>
+          <input id="firstname" name="firstname" type="text" required
+            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+            placeholder="e.g. Firoz" />
+        </div>
+
+        <!-- Last Name -->
+        <div>
+          <label for="lastname" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Last
+            Name</label>
+          <input id="lastname" name="lastname" type="text" required
+            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+            placeholder="e.g. Shaikh" />
+        </div>
+
+        <!-- Contact No -->
+        <div>
+          <label for="contactno" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Contact
+            No</label>
+          <input id="contactno" name="contactno" type="text" required
+            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+            placeholder="e.g. 9876543210" />
+        </div>
+
+        <!-- Emailid -->
+        <div>
+          <label for="emailid" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email
+            Id</label>
+          <input id="emailid" name="emailid" type="text" required
+            class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+            placeholder="e.g. test@gmail.com" />
+        </div>
+
+        <!-- Password -->
+        <div class="col-span-1 lg:col-span-2">
+          <label for="password"
+            class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Password</label>
+          <div class="relative">
+            <input id="password" name="password" type="password" required
+              class="w-full px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition pr-12"
+              placeholder="••••••••" />
+            <!-- Show and  Hide btn -->
+            <button type="button" id="toggle-password" aria-label="Toggle password visibility"
+              class="absolute inset-y-0 right-0 flex items-center px-3 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+              <svg id="eye-show" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              <svg id="eye-hide" class="h-5 w-5 hidden" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Submit -->
+      <button type="submit"
+        class="w-full py-2.5 px-4 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all">
+        Sign up
+      </button>
+
+      <!-- Login Link -->
+      <p class="text-center text-sm text-slate-600 dark:text-slate-400 mt-4">
+        Already have an account?
+        <a href="{{ url_for('login.login') }}"
+          class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium">
+          Login
+        </a>
+      </p>
+
+    </form>
+  </div>
+</div>
+<script>
+  const passwordToggleButton = document.getElementById('toggle-password');
+  const passwordField = document.getElementById('password');
+  const eyeIconShow = document.getElementById('eye-show');
+  const eyeIconHide = document.getElementById('eye-hide');
+
+  passwordToggleButton.addEventListener('click', () => {
+    const isPasswordVisible = passwordField.type === 'password';
+    passwordField.type = isPasswordVisible ? 'text' : 'password';
+    eyeIconShow.classList.toggle('hidden', isPasswordVisible);
+    eyeIconHide.classList.toggle('hidden', !isPasswordVisible);
+  });
+
+  // ✅ Form validation
+  document.getElementById('signup-form').addEventListener('submit', function (e) {
+    const firstname = document.getElementById('firstname').value.trim();
+    const lastname = document.getElementById('lastname').value.trim();
+    const contactno = document.getElementById('contactno').value.trim();
+    const emailid = document.getElementById('emailid').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    // Email regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!firstname || !lastname || !contactno || !emailid || !password) {
+      alert("All fields are required!");
+      e.preventDefault();
+      return;
+    }
+
+    const nameRegex = /^[A-Za-z]+$/;
+
+    // First Name check
+    if (!nameRegex.test(firstname)) {
+      alert("First Name must contain only letters!");
+      e.preventDefault();
+      return;
+    }
+
+    // Last Name check
+    if (!nameRegex.test(lastname)) {
+      alert("Last Name must contain only letters!");
+      e.preventDefault();
+      return;
+    }
+
+    if (!/^\d{10}$/.test(contactno)) {
+      alert("Contact number must be 10 digits.");
+      e.preventDefault();
+      return;
+    }
+
+    if (!emailRegex.test(emailid)) {
+      alert("Please enter a valid email address.");
+      e.preventDefault();
+      return;
+    }
+
+    if (password.length < 3) {
+      alert("Password must be at least 3 characters.");
+      e.preventDefault();
+      return;
+    }
+  });
+
+</script>
+{% endblock %}
