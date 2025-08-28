@@ -176,6 +176,39 @@ To run this project smoothly, make sure your system meets the following minimum 
 
 ---
 
+## 👨‍💻 Team Contributions
+
+<table style="border-collapse: collapse; width: 420px;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Member</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Contribution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>Nehal</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">~58%</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>Romman</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">~21%</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>Huzaifa</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">~14%</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px;"><strong>Firoz</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px;">~7%</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<br>
+
+---
 
 ## Author - Contact Information
 
