@@ -14,7 +14,7 @@ The backend is built with **Flask (Python)** using **Blueprints** for modular ro
 ## 🛠 Tech Stack  
 
 - **Backend:** Python, Flask, Flask-Blueprints  
-- **Frontend/Dashboard: ** html , js , tailwind , jinja template  *
+- **Frontend/Dashboard: ** html , js , tailwind , jinja template 
 - **Database:** SQLite / PostgreSQL / MySQL *(initially setup, later switched to JSON storage)*  
 - **Libraries & Tools:** Pandas, NumPy, Requests, BeautifulSoup / Selenium  
 
