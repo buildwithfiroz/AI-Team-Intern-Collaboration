@@ -117,6 +117,66 @@
 
 ---
 
+## 🚀 How to Use
+
+Follow these simple steps to use the platform:
+
+---
+
+### Step 1: Landing Page  
+You will first see the **Landing Page**.  
+Click **Get Started** or **Login** to continue.  
+
+![Step 1](image_for_readme/landing.png)
+
+---
+
+### Step 2: Login / Register  
+- If you already have an account → Enter your **Email ID & Password**.  
+- If you don’t → Click on **Sign Up** and create a new account.  
+
+![Step 2](image_for_readme/login.png)
+
+---
+
+### Step 3: Enter Product URL  
+Paste the **Product URL** into the input box and click on **Analyze**.  
+
+![Step 3](image_for_readme/input_url.png)
+
+---
+
+### Step 4: Dashboard View  
+The **Dashboard** will appear.  
+Here you can see:  
+- Product Image
+- Product Information  
+- KPI
+- Latest Reviews  
+- Charts 
+
+![Step 4](image_for_readme/dashboard.png)
+
+---
+
+
+<br>
+---
+
+## System Requirements
+
+To run this project smoothly, make sure your system meets the following minimum requirements:
+
+### For All Platforms (Linux / macOS / Windows)
+- **Disk Space:** 500 MB free (project files + dependencies)  
+- **RAM:** 2 GB minimum (4 GB recommended for Playwright scraping)  
+- **Python:** 3.11+  
+- **Internet:** Required (to scrape reviews and install packages)  
+<br>
+
+---
+
+
 ## Author - Contact Information
 
 <br>
