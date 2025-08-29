@@ -185,15 +185,27 @@ To run this project smoothly, make sure your system meets the following minimum 
   </thead>
   <tbody>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;"><strong>Nehal Ahmad Khan</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;">
+        <strong> 
+            <a href="https://github.com/Nehal-Khan-AI"> Nehal Ahmad Khan</a> 
+        </strong>
+      </td>
       <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~58%</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;"><strong>Romman Khan</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;">
+        <strong>
+            <a href="https://github.com/rommaan30"> Romman Khan</a>
+        </strong>
+        </td>
       <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~25%</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;"><strong>Mohammed Huzaifa Shaikh</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;">
+        <strong>
+            <a href="https://github.com/Officialhuzaifa">Mohammed Huzaifa Shaikh
+        </strong>
+      </td>
       <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~17%</td>
   </tbody>
 </table>
@@ -201,7 +213,6 @@ To run this project smoothly, make sure your system meets the following minimum 
 <br>
 
 ---
-
 
 ## Author - Contact Information
 
