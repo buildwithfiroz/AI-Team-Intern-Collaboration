@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block loginbtn %}
+{% endblock %}
+
+{% block content %}
+<main class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 transition-all duration-500" id="box">
+
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+        <!-- image -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5">
+            <h2 class="font-semibold text-slate-800 dark:text-slate-100 mb-4">Product Image</h2>
+            {% for product in products %}
+            <div class="flex flex-wrap justify-center">
+                
+                    
+                        <img src="{{ product['image'] }}" alt="Product-Image" class="w-[250px] h-[220px] object-cover">
+                        
+                   
+                
+            </div>
+            {% endfor %}
+
+
+
+            <div class="flex justify-center my-4">
+                <p class="font-semibold dark:text-slate-100">iQOO </p>
+            </div>
+        </section>
+
+
+<!-- ✅ Top 5 Reviews -->
+<!-- Top 5 Review -->
+<section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md pt-5 h-[26rem] flex flex-col">
+    <h2 class="font-semibold text-slate-800 dark:text-slate-100 px-5">Top 5 Reviews</h2>
+
+    <div class="relative w-full max-w-3xl mx-auto mt-2 overflow-hidden" id="carousel">
+        <!-- SLIDE WRAPPER -->
+        <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out" 
+             style="width: {{ top_reviews|length * 100 }}%;">
+            
+            {% for review in top_reviews %}
+            <!-- Dynamic Slide -->
+            <div class="flex-shrink-0 w-full px-8">
+                <div class="text-slate-800 dark:text-slate-100 text-justify mt-4 ml-1 pt-4 px-2 
+                            w-[32.7rem] h-[19rem] rounded-lg dark:bg-indigo-900 bg-gray-100 ">
+                    <div class="">
+                        <div class="flex">
+                           
+                            
+                            <div>
+                                <p class="mt-3 font-bold text-lg">{{ review.name }}</p>
+                               <div class="pb-2 text-lg">
+                                    {% for i in range(review.rating) %}
+                                        <i class="fa-solid fa-star text-yellow-400"></i>
+                                    {% endfor %}
+                                    {% for i in range(5 - review.rating) %}
+                                        <i class="fa-regular fa-star text-yellow-400"></i>
+                                    {% endfor %}
+                               </div> 
+                            </div>
+                        </div>
+                        <p class="mt-2 pb-4 w-[30rem] mx-4 h-[12rem] overflow-y-auto text-justify">
+                            {{ review.body }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Prev/Next Buttons -->
+        <button id="prevBtn"
+            class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white shadow rounded-full p-2 dark:text-black">
+            ◀
+        </button>
+        <button id="nextBtn"
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white shadow rounded-full p-2 dark:text-black">
+            ▶
+        </button>
+    </div>
+
+    <!-- Slide Info -->
+    <div class="text-muted-foreground py-2 text-center text-xs" id="slide-info">
+        Review 1 of {{ top_reviews|length }}
+    </div>
+</section>
+
+
+<!-- KPI Cards -->
+
+    <section
+        class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 flex flex-col items-start animate-fade-in hover:scale-105 transition-transform duration-300">
+        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Reviews</span>
+        <span class="text-3xl font-bold text-slate-900 dark:text-white">{{ total_reviews }}</span>
+        
+    </section>
+
+    <!-- Avg Rating -->
+    <section
+        class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 flex flex-col items-start animate-fade-in hover:scale-105 transition-transform duration-300">
+        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Avg Rating</span>
+        <span class="text-3xl font-bold text-slate-900 dark:text-white">{{ "%.1f"|format(avg_rating) }}</span>
+        
+    </section>
+
+    <!-- Response Rate -->
+    <section
+        class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 flex flex-col items-start animate-fade-in hover:scale-105 transition-transform duration-300">
+        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Response Rate</span>
+        <span class="text-3xl font-bold text-slate-900 dark:text-white">{{ response_rate }} %</span>
+        
+    </section>
+
+    <!-- Recent Orders -->
+    <section
+        class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 flex flex-col items-start animate-fade-in hover:scale-105 transition-transform duration-300">
+        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Recent Orders</span>
+        <span class="text-3xl font-bold text-slate-900 dark:text-white">{{ recent_orders }}</span>
+    
+    </section>
+
+</div>
+
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 mt-5">
+
+        <!-- Line Chart -->
+        <!-- Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5">
+  <h2 class="font-semibold text-slate-800 dark:text-slate-100 mb-4">Review Trends</h2>
+  <canvas id="reviewsChart" height="100"></canvas>
+</section>
+
+<script>
+  const months = {{ months | tojson | safe }};
+  const counts = {{ counts | tojson | safe }};
+
+  console.log("Months:", months);  // ✅ Debug ke liye
+  console.log("Counts:", counts);  // ✅ Debug ke liye
+
+  if (months.length > 0 && counts.length > 0) {
+    const ctx = document.getElementById("reviewsChart").getContext("2d");
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: months,
+        datasets: [{
+          label: "Reviews per Month",
+          data: counts,
+          borderColor: "rgba(75, 192, 192, 1)",
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          tension: 0.3,
+          fill: true,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          pointBackgroundColor: "rgba(75, 192, 192, 1)"
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: "top" }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1 }
+          }
+        }
+      }
+    });
+  } else {
+    document.getElementById("reviewsChart").parentNode.innerHTML += 
+      "<p class='text-red-500'>⚠️ No review data available</p>";
+  }
+</script>
+
+
+
+        <!-- Pie Chart -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 md:col-span-1 lg:col-span-1 h-[26rem]">
+            <h2 class="font-semibold text-slate-800 dark:text-slate-100 mb-4">Sentiment Distribution</h2>
+            <div class="flex items-center justify-center">
+                <div>
+                    <canvas class="text-center" id="pieChart" aria-label="Sentiment pie chart" role="img"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bar Chart -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 md:col-span-1 lg:col-span-1">
+            <h2 class="font-semibold text-slate-800 dark:text-slate-100 mb-4">Total Rating</h2>
+            <canvas id="barChart" aria-label="Total rating bar chart" role="img"></canvas>
+        </section>
+
+        <!-- Recommand -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 md:col-span-1 lg:col-span-1 h-[26rem]">
+            <h2 class="font-semibold text-slate-800 dark:text-slate-100 mb-4">Recommended</h2>
+            <div class="flex items-center justify-center">
+                <div>
+                    <!-- <canvas class="text-center" id="" aria-label="Sentiment pie chart" role="img"></canvas> -->
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='script/charts.js') }}"></script>
+<script src="{{ url_for('static', filename='script/script.js') }}"></script>
+{% endblock %}
+
+<script>
+    const track = document.getElementById('carousel-track');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const info = document.getElementById('slide-info');
+
+    const totalSlides = 5;
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    // Function to update the carousel based on current index
+    function updateCarousel() {
+        const offset = -currentIndex * 100;
+        track.style.transform = `translateX(${offset}%)`;
+        info.textContent = `Review ${currentIndex + 1} of ${totalSlides}`;
+    }
+
+    // Function to handle previous button click (looping)
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    });
+
+    // Function to handle next button click (looping)
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    });
+
+    // Auto-slide function that transitions every 3 seconds
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }, 3000); // 3 seconds
+    }
+
+    // Stop auto-slide when mouse is over the carousel
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Restart auto-slide when mouse leaves the carousel
+    function resumeAutoSlide() {
+        startAutoSlide();
+    }
+
+    // Attach mouseover and mouseout event listeners for hover functionality
+    const carousel = document.getElementById('carousel');
+    carousel.addEventListener('mouseover', stopAutoSlide);
+    carousel.addEventListener('mouseout', resumeAutoSlide);
+
+    // Initialize the carousel and start auto-slide
+    updateCarousel();
+    startAutoSlide();
+
+</script>
+
+{% endblock %}

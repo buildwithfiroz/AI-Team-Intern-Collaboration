@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Review Analytics</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #f9fafb;
+      color: #111827;
+    }
+
+    a, button {
+      cursor: pointer;
+    }
+
+    /* Navbar */
+    header {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .icon-button {
+      color: #6b7280;
+      background: none;
+      border: none;
+    }
+
+    .icon-button:hover {
+      color: #374151;
+    }
+
+    .login-button {
+      background-color: #4f46e5;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      border: none;
+    }
+
+    .login-button:hover {
+      background-color: #4338ca;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 64px 40px;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+      }
+    }
+
+    .hero-text {
+      max-width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .highlight {
+      color: #4f46e5;
+    }
+
+    .hero-description {
+      color: #4b5563;
+      font-size: 1.125rem;
+    }
+
+    .get-started {
+      background-color: #4f46e5;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      border: none;
+    }
+
+    .get-started:hover {
+      background-color: #4338ca;
+    }
+
+    .hero-image {
+      max-width: 90%;
+      margin-top: 40px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-image {
+        margin-top: 0;
+        max-width: 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="navbar-left">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#4f46e5" width="24" height="24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+      </svg>
+      <h1 class="navbar-title">Dynamic Review Analytics</h1>
+    </div>
+    <div class="navbar-right">
+      <button class="icon-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-13.34l-.7.7m-13.32 0l-.7-.7M21 12h1M2 12H1m16.34 4.66l-.7-.7m-9.28 0l-.7.7"/>
+        </svg>
+      </button>
+      <button class="login-button">Log In</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Left text -->
+    <div class="hero-text">
+      <h2 class="hero-title">
+        Unlock Insights from <br />
+        <span class="highlight">Every Review</span>
+      </h2>
+      <p class="hero-description">
+        An AI-powered platform that scrapes, analyzes, and summarizes website reviews into a clean, user-friendly dashboard. Users can explore insights and interact with the data using a smart, chat-based interface powered by retrieval-augmented generation (RAG).
+      </p>
+      <button class="get-started">Get Started</button>
+    </div>
+
+    <!-- Right image -->
+    <div class="hero-image">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZUao2nwF6sl8YEBwdnJboZ8pFvN6UIPwf7g&s" alt="Dashboard" style="width: 100%; height: auto;" />
+    </div>
+  </section>
+
+</body>
+</html>
