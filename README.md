@@ -30,7 +30,7 @@ I developed the **Frontend (Dashboard UI)** part of this project:
 
 
 ## 📸 Screenshots  
-![Dashboard Screenshot](C:/Users/skhuz/OneDrive/Desktop/HUZ/landing.png)
+![Dashboard Screenshot](landing.png)
 
 
 
