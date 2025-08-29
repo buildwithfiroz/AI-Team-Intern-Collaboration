@@ -23,10 +23,10 @@
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
     <div style="col-span-2">
-        <img src="image_for_readme/macbook.png" alt="Project Banner" width="600"/>
+        <img src="image_for_readme/macbook.png" alt="macbook" width="600"/>
     </div>
     <div style="col-span-1">
-        <img src="image_for_readme/phone.png" alt="Project Banner" width="160"/>
+        <img src="image_for_readme/phone.png" alt="phone" width="160"/>
     </div>
 </div>
 
@@ -117,17 +117,16 @@
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
 Follow these simple steps to use the platform:
-
----
 
 ### Step 1: Landing Page  
 You will first see the **Landing Page**.  
 Click **Get Started** or **Login** to continue.  
 
-![Step 1](image_for_readme/landing.png)
+<img src="image_for_readme/landing.png" alt="phone" width="700"/>
+
 
 ---
 
@@ -135,14 +134,14 @@ Click **Get Started** or **Login** to continue.
 - If you already have an account → Enter your **Email ID & Password**.  
 - If you don’t → Click on **Sign Up** and create a new account.  
 
-![Step 2](image_for_readme/login.png)
+<img src="image_for_readme/login.png" alt="phone" width="700"/>
 
 ---
 
 ### Step 3: Enter Product URL  
 Paste the **Product URL** into the input box and click on **Analyze**.  
 
-![Step 3](image_for_readme/input_url.png)
+<img src="image_for_readme/input_url.png" alt="phone" width="700"/>
 
 ---
 
@@ -152,15 +151,14 @@ Here you can see:
 - Product Image
 - Product Information  
 - KPI
-- Latest Reviews  
-- Charts 
+- Latest Reviews
+- Charts
 
-![Step 4](image_for_readme/dashboard.png)
-
----
+<img src="image_for_readme/dashboard.png" alt="phone" width="700"/>
 
 
 <br>
+
 ---
 
 ## System Requirements
@@ -178,41 +176,35 @@ To run this project smoothly, make sure your system meets the following minimum 
 
 ## 👨‍💻 Team Contributions
 
-<table style="border-collapse: collapse; width: 420px;">
+<table style="border-collapse: collapse;">
   <thead>
     <tr>
-      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Member</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 200px;">Member</th>
       <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Contribution</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;"><strong>Nehal</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">~58%</td>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;"><strong>Nehal Ahmad Khan</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~58%</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;"><strong>Romman</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">~21%</td>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;"><strong>Romman Khan</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~25%</td>
     </tr>
     <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;"><strong>Huzaifa</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">~14%</td>
-    </tr>
-    <tr>
-      <td style="border: 1px solid #ddd; padding: 8px;"><strong>Firoz</strong></td>
-      <td style="border: 1px solid #ddd; padding: 8px;">~7%</td>
-    </tr>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;"><strong>Mohammed Huzaifa Shaikh</strong></td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~17%</td>
   </tbody>
 </table>
-
 
 <br>
 
 ---
 
+
 ## Author - Contact Information
 
-<br>
 
 This project is proudly built and maintained by Nexgeno AI Dept.
 
