@@ -14,9 +14,9 @@ The backend is built with **Flask (Python)** using **Blueprints** for modular ro
 ## 🛠 Tech Stack  
 
 - **Backend:** Python, Flask, Flask-Blueprints  
-- **Frontend/Dashboard: ** html , js , tailwind , jinja template 
-- **Database:** SQLite / PostgreSQL / MySQL *(initially setup, later switched to JSON storage)*  
-- **Libraries & Tools:** Pandas, NumPy, Requests, BeautifulSoup / Selenium  
+- **Frontend/Dashboard:  html , js , tailwind , jinja template 
+- **Database:** SQLite  *(initially setup, later switched to JSON storage)*  
+- **Libraries & Tools:** Pandas, NumPy, Requests, BeautifulSoup / Selenium, playwrite  
 
 ---
 
@@ -76,7 +76,6 @@ Dynamic-Review-Analysis
 ✅ Collaboration-ready backend setup
 
 
-
 👥 Team Contributions
 Romman Khan
 Designed scalable folder structure
@@ -86,11 +85,6 @@ Integrated database setup (later switched to JSON as per team decision)
 helped Nehal in data fetching for dashboards
 
 
-🔮 Future Improvements
-Switch back to a relational database for scalability
-Add authentication with JWT / OAuth
-Implement unit tests & CI/CD pipeline
-Improve API documentation with Swagger / OpenAPI
 
 
 
