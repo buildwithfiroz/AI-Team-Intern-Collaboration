@@ -21,14 +21,11 @@
 
 <!-- images -->
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-    <div style="col-span-2">
-        <img src="image_for_readme/macbook.png" alt="macbook" width="600"/>
-    </div>
-    <div style="col-span-1">
-        <img src="image_for_readme/phone.png" alt="phone" width="160"/>
-    </div>
-</div>
+<p align="center">
+  <img src="image_for_readme/macbook.png" alt="macbook" width="600"/>
+  <img src="image_for_readme/phone.png" alt="phone" width="165"/>
+</p>
+
 
 <br>
 
