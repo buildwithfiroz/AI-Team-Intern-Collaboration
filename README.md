@@ -2,8 +2,8 @@
 
 **Dynamic-Review-Analysis** is an AI-powered platform designed to help users **scrape, analyze, and visualize reviews** from websites.  
 
-- ✅ Scrape reviews from the websites   
-- ✅ Display results in a clean, user-friendly dashboard 
+- Scrape reviews from the websites   
+- Display results in a clean, user-friendly dashboard 
 
 ---
 
@@ -19,9 +19,13 @@
 
 <br>
 
+<!-- images -->
+
 <p align="center">
-  <img src="main/static/image/banner.png" alt="Project Banner" width="800"/>
+  <img src="main/static/images/macbook.png" alt="macbook" width="600"/>
+  <img src="main/static/images/phone.png" alt="phone" width="165"/>
 </p>
+
 
 <br>
 
@@ -50,21 +54,17 @@
 - Extracts reviews with **BeautifulSoup** / **Playwright**  
 - Handles pagination & dynamic content  
 
-### 2. Review Analysis Engine  
-- Text preprocessing & cleaning  
-- **Sentiment Analysis**: Positive / Negative / Neutral  
-- Keyword & theme extraction  
-- Review summarization  
-
-### 3. Dashboard  
+### 2. Dashboard  
 - **KPIs:**  
   - Total reviews  
-  - Avg. sentiment score  
-  - Top themes / keywords  
+  - Avg. rating score  
+  - Recent Orders  
+  - Recommendation
 - **Visuals:**  
-  - Pie chart (sentiment breakdown)  
-  - Bar chart (keyword frequency)  
-  - Line chart (sentiment trend over time)  
+  - Bar chart (Rating)  
+  - Line chart (Montly Review) 
+- **Latest Review:**  
+  - Latest five review
 
 ---
 
@@ -114,9 +114,105 @@
 
 ---
 
-## Author - Contact Information
+## How to Use
+
+Follow these simple steps to use the platform:
+
+### Step 1: Landing Page  
+You will first see the **Landing Page**.  
+Click **Get Started** or **Login** to continue.  
+
+<img src="main/static/images/landing.png" alt="phone" width="700"/>
+
+
+---
+
+### Step 2: Login / Register  
+- If you already have an account → Enter your **Email ID & Password**.  
+- If you don’t → Click on **Sign Up** and create a new account.  
+
+<img src="main/static/images/login.png" alt="phone" width="700"/>
+
+---
+
+### Step 3: Enter Product URL  
+Paste the **Product URL** into the input box and click on **Analyze**.  
+
+<img src="main/static/images/input_url.png" alt="phone" width="700"/>
+
+---
+
+### Step 4: Dashboard View  
+The **Dashboard** will appear.  
+Here you can see:  
+- Product Image
+- Product Information  
+- KPI
+- Latest Reviews
+- Charts
+
+<img src="main/static/images/dashboard.png" alt="phone" width="700"/>
+
 
 <br>
+
+---
+
+## System Requirements
+
+To run this project smoothly, make sure your system meets the following minimum requirements:
+
+### For All Platforms (Linux / macOS / Windows)
+- **Disk Space:** 500 MB free (project files + dependencies)  
+- **RAM:** 2 GB minimum (4 GB recommended for Playwright scraping)  
+- **Python:** 3.11+  
+- **Internet:** Required (to scrape reviews and install packages)  
+<br>
+
+---
+
+## 👨‍💻 Team Contributions
+
+<table style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left; width: 200px;">Member</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Contribution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;">
+        <strong> 
+            <a href="https://github.com/Nehal-Khan-AI"> Nehal Ahmad Khan</a> 
+        </strong>
+      </td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~58%</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;">
+        <strong>
+            <a href="https://github.com/rommaan30"> Romman Khan</a>
+        </strong>
+        </td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~25%</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px; width: 200px;">
+        <strong>
+            <a href="https://github.com/Officialhuzaifa">Mohammed Huzaifa Shaikh
+        </strong>
+      </td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">~17%</td>
+  </tbody>
+</table>
+
+<br>
+
+---
+
+## Author - Contact Information
+
 
 This project is proudly built and maintained by Nexgeno AI Dept.
 
@@ -146,4 +242,3 @@ This project is proudly built and maintained by Nexgeno AI Dept.
 <br>
 
 <p align="center"><b>Made with ❤️ by AI Dept Nexgeno</b></p>
-

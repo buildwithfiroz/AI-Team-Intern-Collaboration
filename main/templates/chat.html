@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}Dynamic Review Analytics{% endblock %}
+
+{% block loginbtn %}
+{% endblock %}
+
+{% block content %}
+<div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 dark:bg-slate-800/90 bg-white border-r border-gray-200 flex-shrink-0">
+        <div class="pt-[1rem] p-4 space-y-4">
+            <!-- New Chat -->
+            <a href="#"
+                class="flex items-center p-2 text-gray-800 hover:bg-gray-100 dark:hover:bg-indigo-500 rounded-md focus:outline-none focus:ring focus:ring-indigo-200 transition duration-150 ease-in-out">
+                <i class="fas fa-plus text-xl mr-2 dark:text-slate-400"></i>
+                <span class="dark:text-slate-400 text-sm font-medium">New Chat</span>
+            </a>
+
+            <!-- History -->
+            <a href="#"
+                class="flex items-center p-2 text-gray-800 hover:bg-gray-100 dark:hover:bg-indigo-500 rounded-md focus:outline-none focus:ring focus:ring-indigo-200 transition duration-150 ease-in-out">
+                <i class="fas fa-clock text-xl mr-2 dark:text-slate-400"></i>
+                <span class="dark:text-slate-400 text-sm font-medium">History</span>
+            </a>
+
+            <!-- Settings -->
+            <a href="#"
+                class="flex items-center p-2 text-gray-800 hover:bg-gray-100 dark:hover:bg-indigo-500 rounded-md focus:outline-none focus:ring focus:ring-indigo-200 transition duration-150 ease-in-out">
+                <i class="fas fa-cog text-xl mr-2 dark:text-slate-400"></i>
+                <span class="dark:text-slate-400 text-sm font-medium">Settings</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col h-full overflow-hidden">
+
+        <!-- Chat Area -->
+        <div class="flex-1 p-4 max-h-[40.35rem] overflow-y-auto">
+            <div class="hidden max-w-3xl mx-auto mt-[16rem] text-center">
+                <h1 class="text-3xl font-bold dark:text-white">Welcome</h1>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">How can I help you today?</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- user -->
+                <div class="flex justify-end">
+                    <p
+                        class="mt-4 mb-4 p-3 max-w-[30rem] w-max rounded-lg text-justify text-gray-700 bg-gray-200 dark:text-gray-300 dark:bg-indigo-500">
+                        Hi
+                    </p>
+                </div>
+                <div>
+                    <!-- AI -->
+                    <p class="p-1 mb-2 text-justify dark:text-slate-200">
+                        Hi, How can I help you?
+                    </p>
+                    <hr class="mb-4 border-gray-300">
+                    <button
+                        class="dark:text-slate-100 dark:hover:bg-indigo-500 dark: hover:bg-gray-200 rounded-xl pl-[0.1rem] pt-[0.3rem] pb-[0.3rem] pr-2">
+                        <i class="fa-regular fa-clone ml-2 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <!-- user -->
+                <div class="flex justify-end">
+                    <p
+                        class="mt-4 mb-4 p-3 max-w-[30rem] w-max rounded-lg text-justify text-gray-700 bg-gray-200 dark:text-gray-300 dark:bg-indigo-500">
+                        How many avearge rating is this product?
+                    </p>
+                </div>
+                <div>
+                    <!-- AI -->
+                    <p class="p-1 mb-2 text-justify dark:text-slate-200">
+                        <b>MacBook Pro M2</b> <br>
+                        Average Rating: 4.7 out of 5 <br>
+                        Total Ratings: 12,583 reviews
+                    </p>
+                    <hr class="mb-4 border-gray-300">
+                    <button
+                        class="dark:text-slate-100 dark:hover:bg-indigo-500 dark: hover:bg-gray-200 rounded-xl pl-[0.1rem] pt-[0.3rem] pb-[0.3rem] pr-2">
+                        <i class="fa-regular fa-clone ml-2 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Bar -->
+        <div
+            class="fixed bottom-10 left-0 right-0 pb-safe w-[50rem] ml-[30rem] bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm dark:border-slate-700 rounded-xl">
+            <!-- Typing indicator -->
+            <div id="typing-indicator" class="hidden px-4 py-2">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0ms">
+                    </div>
+                    <div class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 150ms">
+                    </div>
+                    <div class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 300ms">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-end space-x-2 p-4">
+                <div class="flex-1 relative">
+                    <textarea id="message-input" rows="1" placeholder="Type a message..."
+                        class="w-full px-4 py-2.5 pr-12 bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-500 rounded-full resize-none focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white dark:focus:bg-slate-600 transition"></textarea>
+                </div>
+
+                <button id="send-btn" class="p-3 mb-1 rounded-full bg-indigo-600 hover:bg-brand-700 transition-colors"
+                    aria-label="Send message">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                </button> 
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

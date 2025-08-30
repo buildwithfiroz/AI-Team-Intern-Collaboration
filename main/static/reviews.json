@@ -1,0 +1,14 @@
+{
+    "product": {
+        "title": null,
+        "img_url": null,
+        "price_value": null,
+        "currency_symbol": null,
+        "average_rating": null,
+        "reviews_count": null,
+        "seller": null,
+        "availability": null,
+        "last_month_sale": null
+    },
+    "reviews": []
+}
