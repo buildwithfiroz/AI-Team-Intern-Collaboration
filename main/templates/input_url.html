@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Input URL{% endblock %}
+
+{% block loginbtn %}
+{% endblock %}
+
+{% block content %}
+<main class="min-h-screen lg:mt-[-5.3rem] flex items-center justify-center px-4" id="box">
+  <form id="url-form" method="POST" action="{{ url_for('input_url.input_url') }}"
+    class="w-full max-w-sm animate-fade-in space-y-6" novalidate>
+    <h1 class="text-2xl font-semibold text-center text-slate-800 dark:text-white">
+      Enter a website URL
+    </h1>
+
+    <!-- URL Input -->
+    <div>
+      <label for="url" class="sr-only">Website URL</label>
+      {% if error %}
+      <div class="mt-1 text-sm text-red-600 dark:text-red-400" aria-live="polite">
+        {{ error }}
+      </div>
+      {% endif %}
+      <input id="url" type="url" name="url" placeholder="https://example.com" required
+        class="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition" />
+    </div>
+
+    <button type="submit"
+      class="w-full py-3 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
+      Analysis
+    </button>
+  </form>
+</main>
+
+{% endblock %}

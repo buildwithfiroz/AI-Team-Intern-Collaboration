@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block loginbtn %}
+{% endblock %}
+
+{% block content %}
+<main class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 transition-all duration-500" id="box">
+
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 h-[20rem] mb-8">
+        <!-- image -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5">
+            <h2 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-4">Product Image</h2>
+
+            <div class="flex items-center justify-center w-full">
+                <img src="{{ product['img_url'] }}" alt="{{ product['title'] }}"
+                    class="w-50 h-50 max-w-60 max-h-60 object-contain mb-2">
+            </div>
+        </section>
+
+        <!-- Product Details -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 md:col-span-1 lg:col-span-1">
+            <h2 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-4 mx-1">Product Details</h2>
+            <div class="space-y-2 mx-1">
+                <!-- name -->
+                <div class="flex space-x-2">
+                    <p class="font-bold text-md text-slate-700 dark:text-slate-100">Name:- </p>
+                    <p class="font-medium text-md text-slate-700 dark:text-slate-100 text-justify">{{ product['title']
+                        }}</p>
+                </div>
+
+                <!-- price -->
+                <div class="flex space-x-2">
+                    <p class="font-bold text-md text-slate-700 dark:text-slate-100">Price:- </p>
+                    <p class="font-medium text-md text-slate-700 dark:text-slate-100 text-justify">{{
+                        product['price_value'] }}</p>
+                </div>
+
+                <!-- average rating -->
+                <div class="flex space-x-2">
+                    <p class="font-bold text-md text-slate-700 dark:text-slate-100">Average Rating:- </p>
+                    <p class="font-medium text-md text-slate-700 dark:text-slate-100 text-justify">{{
+                        product['average_rating'] }} </p>
+                    <div class="flex items-center space-x-1 text-lg">
+                        {% set rating = product['average_rating'] | float %}
+                        {% set full_stars = rating | int %}
+                        {% set half_star = 1 if (rating - full_stars) >= 0.5 else 0 %}
+                        {% set empty_stars = 5 - full_stars - half_star %}
+
+                        <div class="flex mt-[-0.2rem]">
+                            <!-- Full stars -->
+                            {% for i in range(full_stars) %}
+                            <i class="fa-solid fa-star text-yellow-400"></i>
+                            {% endfor %}
+
+                            <!-- Half star -->
+                            {% if half_star %}
+                            <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                            {% endif %}
+
+                            <!-- Empty stars -->
+                            {% for i in range(empty_stars) %}
+                            <i class="fa-regular fa-star text-yellow-400"></i>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- seller -->
+                <div class="flex space-x-2">
+                    <p class="font-bold text-md text-slate-700 dark:text-slate-100">Seller:- </p>
+                    <p class="font-medium text-md text-slate-700 dark:text-slate-100 text-justify">{{ product['seller']
+                        }}</p>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+    <!-- KPI Cards -->
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-5">
+        <!-- total review -->
+        <section
+            class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 flex flex-col justify-center animate-fade-in hover:scale-105 transition-transform duration-300">
+            <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Reviews</span>
+            <span class="text-3xl font-bold text-slate-900 dark:text-white">
+                {{ product["reviews_count"] | replace("(", "") | replace(")", "") }}
+            </span>
+            <span class="text-xs text-emerald-600 dark:text-emerald-400 mt-1">All time reviews</span>
+        </section>
+
+        <!-- Avg Rating -->
+        <section
+            class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 flex flex-col justify-center animate-fade-in hover:scale-105 transition-transform duration-300">
+            <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Avg Rating</span>
+
+            <span class="text-3xl font-bold text-slate-900 dark:text-white flex">
+                {{ product['average_rating'] }}
+                <i class="fa-solid fa-star text-yellow-400 text-lg ml-1 mt-1"></i>
+            </span>
+            <span class="text-xs text-emerald-600 dark:text-emerald-400 mt-1">out of 5 Star</span>
+        </section>
+
+        <!-- Recent Ord -->
+        <section
+            class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 flex flex-col justify-center animate-fade-in hover:scale-105 transition-transform duration-300">
+            <span class="text-sm font-medium text-slate-500 dark:text-slate-400">Recent Orders</span>
+            <span class="text-3xl font-bold text-slate-900 dark:text-white">{{product['last_month_sale'].split()[0] }}
+            </span>
+            <span class="text-xs text-emerald-600 dark:text-emerald-400 mt-1">↑ {{ "
+                ".join(product['last_month_sale'].split()[1:]) }}</span>
+        </section>
+
+        <!-- My recommendation -->
+        <section
+            class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 justify-center animate-fade-in hover:scale-105 transition-transform duration-300">
+            <span class="text-sm font-medium text-slate-500 dark:text-slate-400">My Recommendation</span><br>
+            <span class="text-xl font-bold text-slate-900 dark:text-white">
+                {% set average_rating = product['average_rating'] | float %}
+                {% if average_rating > 4.5 %}
+                ⭐ Highly Recommended
+                {% elif average_rating > 4.0 %}
+                👍 Strong Recommendation
+                {% elif average_rating > 3.0 %}
+                🙂 Average Recommendation
+                {% elif average_rating > 2.5 %}
+                ⚠️ Low Recommendation
+                {% else %}
+                ❌ Not Recommended
+                {% endif %}
+            </span>
+            <span class="text-xs text-emerald-600 dark:text-emerald-400 mt-1"></span>
+        </section>
+        
+    </div>
+
+
+    <div class="grid gap-6 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 mt-5">
+
+        <!-- Line Chart -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 md:col-span-1 lg:col-span-1">
+            <h2 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-4">Reviews Over Time</h2>
+            <canvas id="lineChart" aria-label="Reviews trend line chart" role="img"></canvas>
+        </section>
+
+        <!-- Bar Chart -->
+        <section class="bg-white dark:bg-slate-900 rounded-2xl shadow-md p-5 md:col-span-1 lg:col-span-1">
+            <h2 class="font-bold text-lg text-slate-800 dark:text-slate-100 mb-4">Total Rating</h2>
+            <canvas id="barChart" aria-label="Total rating bar chart" role="img"></canvas>
+        </section>
+    </div>
+
+    <!-- Reviews -->
+
+    <section
+        class="mt-5 bg-white dark:bg-slate-900 rounded-lg shadow-md pt-5 h-[26rem] flex flex-col lg:col-span-2 relative">
+        <h2 class="font-bold text-slate-800 dark:text-slate-100 px-5 text-lg">Latest Reviews</h2>
+
+        <div id="review-carousel" class="relative w-full lg:w-[71rem] mx-10 overflow-hidden" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-[20rem] overflow-hidden rounded-lg">
+
+                {% for review in reviews[:5] %}
+                <!-- Each review slide -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div
+                        class="text-slate-800 dark:text-slate-100 text-justify mt-4 ml-1 pt-4 px-2 w-full h-[19rem] rounded-lg dark:bg-indigo-900 bg-gray-100">
+                        <div class="flex ml-3">
+                            <div
+                                class="w-12 h-12 border rounded-full object-cover shadow-lg bg-gray-200 flex items-center justify-center">
+                                <i class="fa-regular fa-user"></i>
+                            </div>
+                            <div class="ml-2 mt-1">
+                                <p class="font-bold text-md">{{ review.author }}</p>
+                                <div class="pb-2 text-sm">
+                                    {% set rating = review.rating|float %}
+                                    {% for i in range(1,6) %}
+                                    {% if rating >= i %}
+                                    <i class="fa-solid fa-star text-yellow-400"></i>
+                                    {% elif rating + 0.5 >= i %}
+                                    <i class="fa-solid fa-star-half-stroke text-yellow-400"></i>
+                                    {% else %}
+                                    <i class="fa-regular fa-star text-yellow-400"></i>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mx-4 text-gray-500 text-sm">{{ review.date }}</p>
+                        <p class="mt-2 pb-4 pr-10 font-[200] w-full mx-4 h-[10rem] overflow-y-auto text-justify">
+                            {{ review.text }}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Indicators -->
+            <div class="absolute z-30 flex -translate-x-1/2 bottom-3 left-1/2 space-x-3">
+                {% for review in reviews[:5] %}
+                <button type="button" class="w-3 h-3 rounded-full bg-black hover:bg-gray-500 transition"
+                    aria-current="{{ 'true' if loop.first else 'false' }}" aria-label="Slide {{ loop.index }}"
+                    data-carousel-slide-to="{{ loop.index0 }}">
+                </button>
+                {% endfor %}
+            </div>
+
+            <!-- Controls -->
+            <button type="button" class="absolute top-[50%] start-0 z-30 flex items-center justify-center h-full bg-gray-200 rounded-full p-1 max-h-[2rem]"
+                data-carousel-prev>
+                ◀
+            </button>
+            <button type="button" class="absolute top-[50%] end-0 z-30 flex items-center justify-center h-full bg-gray-200 rounded-full p-1 max-h-[2rem]"
+                data-carousel-next>
+                ▶
+            </button>
+        </div>
+    </section>
+
+    <!-- Make sure Flowbite is included -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js"></script>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const starData = {{ star_data | tojson | safe }};
+    const lineLabels = {{ line_labels | tojson | safe }};
+    const lineData = {{ line_data | tojson | safe }};
+</script>
+
+{% block script %}
+<script src="{{ url_for('static', filename='script/script.js') }}"></script>
+{% endblock %}
+
+{% endblock %}
