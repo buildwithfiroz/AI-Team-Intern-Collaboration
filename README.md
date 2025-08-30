@@ -22,8 +22,8 @@
 <!-- images -->
 
 <p align="center">
-  <img src="image_for_readme/macbook.png" alt="macbook" width="600"/>
-  <img src="image_for_readme/phone.png" alt="phone" width="165"/>
+  <img src="main/static/images/macbook.png" alt="macbook" width="600"/>
+  <img src="main/static/images/phone.png" alt="phone" width="165"/>
 </p>
 
 
@@ -122,7 +122,7 @@ Follow these simple steps to use the platform:
 You will first see the **Landing Page**.  
 Click **Get Started** or **Login** to continue.  
 
-<img src="image_for_readme/landing.png" alt="phone" width="700"/>
+<img src="main/static/images/landing.png" alt="phone" width="700"/>
 
 
 ---
@@ -131,14 +131,14 @@ Click **Get Started** or **Login** to continue.
 - If you already have an account → Enter your **Email ID & Password**.  
 - If you don’t → Click on **Sign Up** and create a new account.  
 
-<img src="image_for_readme/login.png" alt="phone" width="700"/>
+<img src="main/static/images/login.png" alt="phone" width="700"/>
 
 ---
 
 ### Step 3: Enter Product URL  
 Paste the **Product URL** into the input box and click on **Analyze**.  
 
-<img src="image_for_readme/input_url.png" alt="phone" width="700"/>
+<img src="main/static/images/input_url.png" alt="phone" width="700"/>
 
 ---
 
@@ -151,7 +151,7 @@ Here you can see:
 - Latest Reviews
 - Charts
 
-<img src="image_for_readme/dashboard.png" alt="phone" width="700"/>
+<img src="main/static/images/dashboard.png" alt="phone" width="700"/>
 
 
 <br>
